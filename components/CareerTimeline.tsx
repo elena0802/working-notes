@@ -114,7 +114,7 @@ export default function CareerTimeline({
 
             {milestone.journalSlug && (
               <Link
-                href={`/journal/${milestone.journalSlug}`}
+                href={`/notes/${milestone.journalSlug}`}
                 className={
                   isTeaser
                     ? "mt-4 inline-block border border-foreground/15 px-4 py-2 text-xs tracking-[0.08em] text-foreground/70 transition-colors hover:border-accent hover:text-accent"

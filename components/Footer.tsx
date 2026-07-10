@@ -1,9 +1,8 @@
 import Link from "next/link";
 
 const navItems = [
-  { href: "/about", label: "교직 이야기" },
-  { href: "/journal", label: "기록과 생각" },
-  { href: "/places", label: "좋은 공간들" },
+  { href: "/", label: "Home" },
+  { href: "/notes", label: "기록과 생각" },
 ];
 
 export default function Footer() {
@@ -13,11 +12,11 @@ export default function Footer() {
         <div className="flex flex-col items-center text-center">
           <Link href="/" className="group">
             <p className="font-serif text-lg tracking-[0.16em] text-foreground transition-colors group-hover:text-accent md:text-xl md:tracking-[0.18em]">
-              SECOND SEASON
+              WORKING NOTES
             </p>
           </Link>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-foreground/65">
-            A journal of places, moments, and the second season of life.
+            개인적인 기록과 생각을 모아두는 공간입니다.
           </p>
           <nav
             aria-label="Footer"

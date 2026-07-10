@@ -17,7 +17,7 @@ export default function CollectionStoriesSection({
   return (
     <section className={className}>
       <div className="max-w-3xl">
-        <p className="section-label">Journal</p>
+        <p className="section-label">기록과 생각</p>
         <h2 className="mt-5 font-serif text-2xl text-foreground sm:text-3xl md:text-4xl">
           Stories in This Collection
         </h2>

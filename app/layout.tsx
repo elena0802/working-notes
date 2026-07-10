@@ -28,11 +28,10 @@ const notoSansKr = Noto_Sans_KR({
 
 export const metadata: Metadata = {
   title: {
-    default: "Second Season",
-    template: "%s · Second Season",
+    default: "Working Notes",
+    template: "%s · Working Notes",
   },
-  description:
-    "A journal of places, moments, and the second season of life.",
+  description: "개인적인 기록과 생각을 모아두는 공간입니다.",
 };
 
 export default function RootLayout({

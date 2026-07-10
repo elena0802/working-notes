@@ -80,7 +80,7 @@ function storiesListHtml(stories: Article[], newsletterUrl: string): string {
 
   const items = stories
     .map((story) => {
-      const storyUrl = absoluteUrl(`/journal/${story.slug}`);
+      const storyUrl = absoluteUrl(`/notes/${story.slug}`);
 
       return `<li style="margin-bottom: 16px;">
   <a href="${storyUrl}" style="color: #2e2e2e; font-size: 16px; font-family: Georgia, 'Times New Roman', serif; text-decoration: none; border-bottom: 1px solid #d8d0c4;">${escapeHtml(story.title)}</a>
@@ -227,7 +227,7 @@ export function renderNewsletterEmailText(
   const storyLines = stories
     .map(
       (story) =>
-        `- ${story.title}\n  ${story.excerpt}\n  ${absoluteUrl(`/journal/${story.slug}`)}`,
+        `- ${story.title}\n  ${story.excerpt}\n  ${absoluteUrl(`/notes/${story.slug}`)}`,
     )
     .join("\n\n");
 

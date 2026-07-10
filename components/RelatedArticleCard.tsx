@@ -9,7 +9,7 @@ type RelatedArticleCardProps = {
 export default function RelatedArticleCard({ article }: RelatedArticleCardProps) {
   return (
     <article className="group min-w-0">
-      <Link href={`/journal/${article.slug}`} className="block">
+      <Link href={`/notes/${article.slug}`} className="block">
         <EditorialImage
           src={article.image}
           alt={article.imageAlt}
