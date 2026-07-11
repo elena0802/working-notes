@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ArticleCard from "@/components/ArticleCard";
-import { getRecentNotes } from "@/data/notes";
+import { getRecentNotes } from "@/lib/notes";
 
 export default function Home() {
   const recentNotes = getRecentNotes(3);

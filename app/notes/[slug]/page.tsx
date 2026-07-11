@@ -4,17 +4,17 @@ import ArticleCard from "@/components/ArticleCard";
 import ArticleMarkdown from "@/components/ArticleMarkdown";
 import EditorialImage from "@/components/EditorialImage";
 import {
+  getAllNotes,
   getNoteBySlug,
   getRelatedNotes,
-  notes,
-} from "@/data/notes";
+} from "@/lib/notes";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return notes.map((note) => ({ slug: note.slug }));
+  return getAllNotes().map((note) => ({ slug: note.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps) {
@@ -78,7 +78,7 @@ export default async function NotePage({ params }: PageProps) {
         <div className="page-shell mx-auto mt-10 max-w-5xl md:mt-16">
           <EditorialImage
             src={note.coverImage}
-            alt={note.title}
+            alt={note.imageAlt ?? note.title}
             aspect="feature"
             priority
           />

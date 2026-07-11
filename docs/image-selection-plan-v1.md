@@ -300,7 +300,7 @@ When all seven files are approved:
 
 1. Copy into `/public/images/` using production filenames above **or** update `data/articles.ts` + markdown frontmatter to editorial paths.
 2. Update `imageAlt` and `imageCaption` in each article’s markdown frontmatter to match the new scene — moment description, not stock credit in the hero caption.
-3. Re-run `npm run build` and visually compare all seven heroes side-by-side in `/journal` to confirm no two feel like the same shoot.
+3. Re-run `npm run build` and visually compare all seven legacy article heroes side-by-side to confirm no two feel like the same shoot.
 
 ---
 

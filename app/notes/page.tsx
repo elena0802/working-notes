@@ -1,5 +1,5 @@
 import ArticleCard from "@/components/ArticleCard";
-import { notes } from "@/data/notes";
+import { getAllNotes } from "@/lib/notes";
 
 export const metadata = {
   title: "기록과 생각",
@@ -7,6 +7,8 @@ export const metadata = {
 };
 
 export default function NotesPage() {
+  const notes = getAllNotes();
+
   return (
     <div className="pb-24 pt-10 md:pt-14">
       <header className="page-shell mx-auto max-w-[760px] text-center">

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import EditorialImage from "@/components/EditorialImage";
-import type { Note } from "@/data/notes";
 import type { ArticleDisplay } from "@/lib/content";
+import type { Note } from "@/lib/notes";
 
 type ArticleCardProps = {
   article: ArticleDisplay | Note;
@@ -18,7 +18,9 @@ export default function ArticleCard({
 }: ArticleCardProps) {
   const isNote = "type" in article;
   const coverImage = isNote ? article.coverImage : article.image;
-  const imageAlt = isNote ? article.title : article.imageAlt;
+  const imageAlt = isNote
+    ? (article.imageAlt ?? article.title)
+    : article.imageAlt;
   const imageCaption = isNote ? undefined : article.imageCaption;
   const label = isNote ? article.type : article.category;
   const summary = isNote ? article.summary : article.excerpt;
