@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
           </Link>
           <p className="mt-5 max-w-md text-sm leading-relaxed text-foreground/65">
-            개인적인 기록과 생각을 모아두는 공간입니다.
+            의사결정 과정과 생각의 변화를 기록합니다.
           </p>
           <nav
             aria-label="Footer"
