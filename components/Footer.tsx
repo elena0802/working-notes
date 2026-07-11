@@ -32,9 +32,6 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
-          <p className="mt-8 text-xs uppercase tracking-[0.22em] text-foreground/40">
-            Powered by Re:Place
-          </p>
         </div>
       </div>
     </footer>

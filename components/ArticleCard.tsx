@@ -1,50 +1,39 @@
 import Link from "next/link";
 import EditorialImage from "@/components/EditorialImage";
-import type { ArticleDisplay } from "@/lib/content";
 import type { Note } from "@/lib/notes";
 
 type ArticleCardProps = {
-  article: ArticleDisplay | Note;
+  article: Note;
   variant?: "default" | "magazine" | "lead";
-  hideCaption?: boolean;
   homeTypography?: boolean;
 };
 
 export default function ArticleCard({
   article,
   variant = "default",
-  hideCaption = false,
   homeTypography = false,
 }: ArticleCardProps) {
-  const isNote = "type" in article;
-  const coverImage = isNote ? article.coverImage : article.image;
-  const imageAlt = isNote
-    ? (article.imageAlt ?? article.title)
-    : article.imageAlt;
-  const imageCaption = isNote ? undefined : article.imageCaption;
-  const label = isNote ? article.type : article.category;
-  const summary = isNote ? article.summary : article.excerpt;
+  const imageAlt = article.imageAlt ?? article.title;
 
   if (variant === "lead") {
     return (
       <article className="group min-w-0">
         <Link href={`/notes/${article.slug}`} className="block">
-          {coverImage ? (
+          {article.coverImage ? (
             <EditorialImage
-              src={coverImage}
+              src={article.coverImage}
               alt={imageAlt}
-              caption={hideCaption ? undefined : imageCaption}
               aspect="feature"
             />
           ) : null}
           <div
             className={
-              coverImage
+              article.coverImage
                 ? "mt-8 max-w-xl"
                 : "max-w-xl border-t border-muted/70 pt-8"
             }
           >
-            <p className="section-label">{label}</p>
+            <p className="section-label">{article.type}</p>
             <h3
               className={
                 homeTypography
@@ -61,7 +50,7 @@ export default function ArticleCard({
                   : "mt-4 text-sm leading-[1.8] text-foreground/65 sm:text-base"
               }
             >
-              {summary}
+              {article.summary}
             </p>
           </div>
         </Link>
@@ -73,20 +62,19 @@ export default function ArticleCard({
     return (
       <article className="group min-w-0">
         <Link href={`/notes/${article.slug}`} className="block">
-          {coverImage ? (
+          {article.coverImage ? (
             <EditorialImage
-              src={coverImage}
+              src={article.coverImage}
               alt={imageAlt}
-              caption={hideCaption ? undefined : imageCaption}
               aspect="card"
             />
           ) : null}
           <div
             className={
-              coverImage ? "mt-6" : "border-t border-muted/70 pt-6"
+              article.coverImage ? "mt-6" : "border-t border-muted/70 pt-6"
             }
           >
-            <p className="section-label">{label}</p>
+            <p className="section-label">{article.type}</p>
             <h3
               className={
                 homeTypography
@@ -105,23 +93,24 @@ export default function ArticleCard({
   return (
     <article className="group min-w-0">
       <Link href={`/notes/${article.slug}`} className="block">
-        {coverImage ? (
+        {article.coverImage ? (
           <EditorialImage
-            src={coverImage}
+            src={article.coverImage}
             alt={imageAlt}
-            caption={hideCaption ? undefined : imageCaption}
             aspect="card"
           />
         ) : null}
         <div
-          className={coverImage ? "mt-6" : "border-t border-muted/70 pt-6"}
+          className={
+            article.coverImage ? "mt-6" : "border-t border-muted/70 pt-6"
+          }
         >
-          <p className="section-label">{label}</p>
+          <p className="section-label">{article.type}</p>
           <h3 className="mt-3 font-serif text-xl leading-snug text-foreground transition-colors group-hover:text-accent sm:text-2xl">
             {article.title}
           </h3>
           <p className="mt-3 text-sm leading-[1.8] text-foreground/65 sm:text-base">
-            {summary}
+            {article.summary}
           </p>
         </div>
       </Link>

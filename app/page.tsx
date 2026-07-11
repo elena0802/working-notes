@@ -32,7 +32,6 @@ export default function Home() {
                 key={note.slug}
                 article={note}
                 variant="magazine"
-                hideCaption
                 homeTypography
               />
             ))}
