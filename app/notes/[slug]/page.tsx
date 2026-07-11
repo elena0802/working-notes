@@ -43,7 +43,7 @@ export default async function NotePage({ params }: PageProps) {
 
   return (
     <article className="pb-24 pt-10 md:pt-14">
-      <header className="page-shell mx-auto max-w-4xl text-center">
+      <header className="page-shell mx-auto max-w-[860px] text-center">
         <Link
           href="/notes"
           className="text-xs uppercase tracking-[0.28em] text-foreground/55 transition-colors hover:text-accent"
@@ -57,7 +57,7 @@ export default async function NotePage({ params }: PageProps) {
           {note.title}
         </h1>
 
-        <p className="mt-6 whitespace-pre-line font-serif-kr text-lg leading-[1.75] text-foreground/70 sm:mt-7 sm:text-xl md:text-2xl">
+        <p className="mx-auto mt-6 max-w-[700px] whitespace-pre-line font-serif-kr text-lg leading-[1.75] text-foreground/70 sm:mt-7 sm:text-xl md:text-2xl">
           {note.summary}
         </p>
 
@@ -87,7 +87,7 @@ export default async function NotePage({ params }: PageProps) {
 
       <div
         className={`page-shell mx-auto w-full max-w-[700px] ${
-          note.coverImage ? "mt-12 md:mt-20" : "mt-14 md:mt-20"
+          note.coverImage ? "mt-10 md:mt-16" : "mt-10 md:mt-14"
         }`}
       >
         <ArticleMarkdown content={note.content} />
