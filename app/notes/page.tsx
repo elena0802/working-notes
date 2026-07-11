@@ -1,4 +1,4 @@
-import ArticleCard from "@/components/ArticleCard";
+import Link from "next/link";
 import { getAllNotes } from "@/lib/notes";
 
 export const metadata = {
@@ -11,20 +11,35 @@ export default function NotesPage() {
 
   return (
     <div className="pb-24 pt-10 md:pt-14">
-      <header className="page-shell mx-auto max-w-[760px] text-center">
-        <p className="section-label">기록과 생각</p>
-        <h1 className="mt-5 font-serif-kr text-2xl leading-[1.5] tracking-[0.01em] text-foreground sm:mt-6 sm:text-3xl md:text-4xl">
-          결정하고, 바꾸고, 돌아보는 기록
+      <header className="page-shell mx-auto max-w-5xl">
+        <h1 className="font-serif-kr text-2xl leading-[1.5] tracking-[0.01em] text-foreground sm:text-3xl">
+          기록과 생각
         </h1>
-        <p className="body-calm mx-auto mt-6 max-w-xl text-foreground/65 sm:mt-8">
-          의사결정 과정과 생각의 변화, 실행 후의 회고를 기록합니다.
-        </p>
       </header>
 
-      <section className="page-shell mx-auto max-w-7xl py-12 md:py-20">
-        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-14">
+      <section className="page-shell mx-auto max-w-5xl pt-10 md:pt-14">
+        <div>
           {notes.map((note) => (
-            <ArticleCard key={note.slug} article={note} variant="default" />
+            <article
+              key={note.slug}
+              className="border-t border-muted/50 last:border-b"
+            >
+              <Link
+                href={`/notes/${note.slug}`}
+                className="group grid gap-3 py-6 sm:py-7 md:grid-cols-[8rem_minmax(0,1fr)_auto] md:items-baseline md:gap-8"
+              >
+                <time
+                  dateTime={note.date}
+                  className="text-xs tracking-[0.12em] text-foreground/45"
+                >
+                  {note.date.replaceAll("-", ".")}
+                </time>
+                <h2 className="font-serif text-xl leading-snug text-foreground transition-colors group-hover:text-accent sm:text-2xl">
+                  {note.title}
+                </h2>
+                <p className="section-label">{note.type}</p>
+              </Link>
+            </article>
           ))}
         </div>
       </section>
