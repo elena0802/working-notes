@@ -46,27 +46,27 @@ export default async function NotePage({ params }: PageProps) {
       <header className="page-shell mx-auto max-w-4xl text-center">
         <Link
           href="/notes"
-          className="text-xs uppercase tracking-[0.28em] text-foreground/45 transition-colors hover:text-accent"
+          className="text-xs uppercase tracking-[0.28em] text-foreground/55 transition-colors hover:text-accent"
         >
           기록과 생각
         </Link>
 
         <p className="section-label mt-8 sm:mt-10">{note.type}</p>
 
-        <h1 className="mt-4 font-serif text-3xl leading-[1.15] tracking-[0.01em] text-foreground sm:mt-5 sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+        <h1 className="mt-4 font-serif-kr text-3xl leading-[1.34] tracking-normal text-foreground sm:mt-5 sm:text-4xl md:text-5xl lg:text-[3.25rem]">
           {note.title}
         </h1>
 
-        <p className="mt-5 whitespace-pre-line font-serif text-lg leading-relaxed text-foreground/60 sm:mt-6 sm:text-xl md:text-2xl">
+        <p className="mt-6 whitespace-pre-line font-serif-kr text-lg leading-[1.75] text-foreground/70 sm:mt-7 sm:text-xl md:text-2xl">
           {note.summary}
         </p>
 
-        <p className="mt-6 text-xs tracking-[0.12em] text-foreground/45 sm:mt-8">
+        <p className="mt-6 text-xs tracking-[0.12em] text-foreground/55 sm:mt-8">
           {note.date}
         </p>
 
         {note.tags && note.tags.length > 0 ? (
-          <ul className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs tracking-[0.08em] text-foreground/45">
+          <ul className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs tracking-[0.08em] text-foreground/55">
             {note.tags.map((tag) => (
               <li key={tag}>#{tag}</li>
             ))}
@@ -86,7 +86,7 @@ export default async function NotePage({ params }: PageProps) {
       ) : null}
 
       <div
-        className={`page-shell mx-auto max-w-[680px] ${
+        className={`page-shell mx-auto w-full max-w-[700px] ${
           note.coverImage ? "mt-12 md:mt-20" : "mt-14 md:mt-20"
         }`}
       >
