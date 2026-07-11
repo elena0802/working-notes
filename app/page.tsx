@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="page-shell mx-auto max-w-7xl py-16 md:py-24 lg:py-28">
+      <section className="page-shell mx-auto max-w-7xl py-12 md:py-[4.5rem] lg:py-20">
         <div className="mx-auto max-w-3xl text-center">
           <p className="section-label">Working Notes</p>
           <h1 className="mt-5 font-serif text-4xl leading-snug text-foreground sm:text-5xl md:text-6xl">
@@ -19,14 +19,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section border-t border-muted/50">
+      <section className="border-t border-muted/50 py-12 md:py-[4.5rem]">
         <div className="page-shell mx-auto max-w-7xl">
-          <div className="mb-12 md:mb-14">
-            <p className="section-label">Recent Notes</p>
-            <h2 className="home-section-title mt-4 md:mt-5">최근 기록</h2>
+          <div className="mb-10 flex flex-col items-start gap-6 sm:flex-row sm:items-end sm:justify-between md:mb-12">
+            <div>
+              <p className="section-label">Recent Notes</p>
+              <h2 className="home-section-title mt-4 md:mt-5">최근 기록</h2>
+            </div>
+            <Link href="/notes" className="home-btn shrink-0">
+              기록과 생각 전체 보기 →
+            </Link>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-14">
+          <div className="grid items-stretch gap-10 md:grid-cols-2 md:gap-12 [&_h3]:min-h-[3.75rem] [&>article]:h-full [&>article>a]:h-full [&>article>a>div]:h-full">
             {recentNotes.map((note) => (
               <ArticleCard
                 key={note.slug}
@@ -35,12 +40,6 @@ export default function Home() {
                 homeTypography
               />
             ))}
-          </div>
-
-          <div className="mt-14 text-center md:mt-20">
-            <Link href="/notes" className="home-btn">
-              기록과 생각 전체 보기 →
-            </Link>
           </div>
         </div>
       </section>
